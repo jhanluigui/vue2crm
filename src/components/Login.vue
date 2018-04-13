@@ -10,18 +10,18 @@
           <v-card-text>
               <form @submit.prevent="login">
                 <v-layout row>
-                  <v-flex xs4>
+                  <v-flex sm4 hidden-xs-only hidden-sm-only >
                     <v-subheader>User ID</v-subheader>
                   </v-flex>
-                  <v-flex xs8>
+                 <v-flex sm8>
                     <v-text-field class="input-group--focused" name="email" v-model="email" label="email" value="Input text"></v-text-field>
                   </v-flex>
                 </v-layout>
                 <v-layout row>
-                  <v-flex xs4>
+                  <v-flex sm4 hidden-xs-only hidden-sm-only >
                     <v-subheader>Password</v-subheader>
                   </v-flex>
-                  <v-flex xs8>
+                  <v-flex sm8>
                     <v-text-field class="input-group--focused" name="password" type="password" v-model="pass" label="password" value="Input text"></v-text-field>
                   </v-flex>
                 </v-layout>
