@@ -196,7 +196,7 @@ export default {
             let observacion = c
             observacion.text = c.observacion
             observacion.value = c.idObservacion
-            this.herramientaList.push(observacion)
+            this.observacionList.push(observacion)
           })
         }, (err) => {
           console.log(err)
@@ -210,7 +210,7 @@ export default {
             let reporta = c
             reporta.text = c.Paterno + " " + c.Materno + ", " + c.Nombres
             reporta.value = c.IdPersonal
-            this.herramientaList.push(reporta)
+            this.reportaList.push(reporta)
           })
         }, (err) => {
           console.log(err)
@@ -251,6 +251,9 @@ export default {
     this.getCarta()
     this.getAee()
     this.getObservacion()
+    this.getReporta()
+    this.getMotivo()
+    this.getBimestre()
     if (this.$route.params.id) {
       this.getById()
       this.title = 'Edit Customer'
