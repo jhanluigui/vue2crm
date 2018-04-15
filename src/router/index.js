@@ -2,6 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import ErrorPage from '@/components/404'
 
+import SeguimientoForm from '@/pages/SeguimientoForm'
 import Dashboard from '@/pages/Dashboard'
 import OrderList from '@/pages/OrderList'
 import OrderForm from '@/pages/OrderForm'
@@ -38,6 +39,7 @@ export default new Router({
   routes: [
     { path: '/404', component: ErrorPage, name: 'ErrorPage' },
     { path: '/dashboard', component: Dashboard, name: 'Dashboard', beforeEnter: requireAuth },
+    { path: '/nuevo_seguimiento', component: SeguimientoForm, name: 'seguimientoForm', beforeEnter: requireAuth },
     { path: '/about', component: About, name: 'About', beforeEnter: requireAuth },
     { path: '/orders', component: OrderList, name: 'Orders', beforeEnter: requireAuth },
     { path: '/neworder', component: OrderForm, name: 'NewOrder', beforeEnter: requireAuth },
@@ -56,7 +58,7 @@ export default new Router({
         next('/login')
       }
     },
-    { path: '/', redirect: '/dashboard' },
+    { path: '/', redirect: '/nuevo_seguimiento' },
     { path: '*', redirect: '/404' }
   ],
   meta: {

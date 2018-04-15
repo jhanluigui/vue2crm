@@ -109,34 +109,40 @@ export default {
       fixed: false,
       items: [
         {
+          icon: "perm_identity",
+          title: "Seguimiento",
+          vertical: "Seguimiento",
+          link: "seguimientoForm"
+        },
+        {
           icon: "dashboard",
           title: "Dashboard",
           vertical: "Dashboard",
-          link: "dashboard"
+          link: "Dashboard"
         },
         {
           icon: "shopping_cart",
           title: "Orders",
           vertical: "Order",
-          link: "orders"
+          link: "Orders"
         },
         {
           icon: "perm_identity",
           title: "Customers",
           vertical: "Customer",
-          link: "customers"
+          link: "Customers"
         },
         {
           icon: "bubble_chart",
           title: "Products",
           vertical: "Product",
-          link: "products"
+          link: "Products"
         },
         {
           icon: "thumbs_up_down",
           title: "About",
           vertical: "About",
-          link: "about"
+          link: "About"
         }
       ],
       userMenus: [
@@ -201,7 +207,7 @@ export default {
     clickMenu (item) {
       this.menuItem = item.title;
       this.$router.push({
-        name: item.title
+        name: item.link
       });
     },
     openDialog (
