@@ -3,7 +3,7 @@
     <v-flex xs12>
       <v-card class="grey lighten-4 elevation-0">
         <v-card-title>
-         Nueva Entrevista
+         Nuevo Reporte
           <v-spacer></v-spacer>
           &nbsp;
           <v-btn fab small class="purple" @click.native="save()">
@@ -18,23 +18,23 @@
           <v-container fluid grid-list-md>
             <v-layout row wrap>
               <v-flex md12 xs12>
-                  <v-select required autocomplete v-bind:items="alumnoList" label="Alumno" v-model="alumnoId"></v-select>
+                  <v-select required autocomplete v-bind:items="alumnoList" label="Alumno" ></v-select>
               </v-flex>
               <v-flex md8 xs12>
-                  <v-select required v-bind:items="herramientaList" label="Herramienta de Seguimiento" ></v-select>
+                  <v-select required v-bind:items="herramientaList" label="Herramienta de Seguimiento" v-model="herramientaId" ></v-select>
               </v-flex>
               <v-flex md8 xs12>
-                  <v-select required v-bind:items="cartaList" label="Carta" ></v-select>
+                  <v-select v-if="verCarta" required v-bind:items="cartaList" label="Carta" ></v-select>
               </v-flex>
               <v-flex md8 xs12>
-                  <v-select required v-bind:items="aeeList" label="AEE" ></v-select>
+                  <v-select v-if="verAEE" required v-bind:items="aeeList" label="AEE" ></v-select>
               </v-flex>
               <v-flex md8 xs12>
-                  <v-select required v-bind:items="observacionList" label="Observación" ></v-select>
+                  <v-select v-if="verObservacion" required v-bind:items="observacionList" label="Observación" ></v-select>
               </v-flex>
 
               <v-flex md8 xs12>
-                  <v-select required v-bind:items="reportaList" label="Reporta" ></v-select>
+                  <v-select required autocomplete v-bind:items="reportaList" label="Reporta" ></v-select>
               </v-flex>
               <v-flex md8 xs12>
                   <v-select required v-bind:items="motivoList" label="Motivo" ></v-select>
@@ -55,7 +55,10 @@
 export default {
   data () {
     return {
-      alumnoId: null,
+      verCarta: false,
+      verAEE: false,
+      verObservacion: false,
+      herramientaId: null,
       errors: [],
       title: '',
       customer: {},
@@ -85,22 +88,20 @@ export default {
   computed: {
   },
   watch: {
-      alumnoId () {
-        console.log("entro")
-        if (this.alumnoId > 0) {
-          console.log(this.alumnoId)
-/*           this.products = []
-          this.api.getData('products?categoryId=' + this.categoryId).then((res) => {
-            res.data.forEach((c) => {
-              let product = c
-              product.text = c.productName
-              product.value = c.id
-              this.products.push(product)
-            })
-            return this.products
-          }, (err) => {
-            console.log(err)
-          }) */
+      herramientaId () {
+        this.verCarta = false
+        this.verAEE = false
+        this.verObservacion = false
+        switch (this.herramientaId) {
+            case '1':
+                this.verCarta = true
+                break;
+            case '2':
+                this.verAEE = true
+                break;
+            case '3':
+                this.verObservacion = true
+                break;
         }
       }
     },

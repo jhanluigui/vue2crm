@@ -75,7 +75,7 @@
       </v-content>
       <canvas id="canvas"></canvas>
       <v-footer :inset="true" style="justify-content:center; text-align: center" app>
-        <span >&copy; Vue-CRM 2018</span>
+        <span >&copy; Montessori 2018</span>
       </v-footer>
         </template>
     <v-dialog v-model="dialog" persistent max-width="290">
@@ -110,8 +110,8 @@ export default {
       items: [
         {
           icon: "perm_identity",
-          title: "Seguimiento",
-          vertical: "Seguimiento",
+          title: "Reporte",
+          vertical: "Reporte",
           link: "seguimientoForm"
         },
         {
